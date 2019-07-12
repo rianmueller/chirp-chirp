@@ -6,20 +6,52 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
 var counter = {
-  "a" : 0,  "b" : 0,  "c" : 0,  "d" : 0,
-  "e" : 0,  "f" : 0,  "g" : 0,  "h" : 0,
-  "i" : 0,  "j" : 0,  "k" : 0,  "l" : 0,
-  "m" : 0,  "n" : 0,  "o" : 0,  "p" : 0,
-  "q" : 0,  "r" : 0,  "s" : 0,  "t" : 0,
-  "u" : 0,  "v" : 0,  "w" : 0,  "x" : 0,
-  "y" : 0,  "z" : 0
+  a: 0,
+  b: 0,
+  c: 0,
+  d: 0,
+  e: 0,
+  f: 0,
+  g: 0,
+  h: 0,
+  i: 0,
+  j: 0,
+  k: 0,
+  l: 0,
+  m: 0,
+  n: 0,
+  o: 0,
+  p: 0,
+  q: 0,
+  r: 0,
+  s: 0,
+  t: 0,
+  u: 0,
+  v: 0,
+  w: 0,
+  x: 0,
+  y: 0,
+  z: 0
+};
+
+function countLetters(counter, sample_text) {
+  if (sample_text.length === 0) {
+    return;
+  }
+  // grab first character
+  // evaluate and transform char to lowercase letter
+  let char = sample_text.substring(0, 1).toLowerCase();
+  // increment
+  if (char in counter) {
+    counter[char]++;
+  }
+  // remove first char
+  sample_text = sample_text.substring(1);
+  // recursion
+  return countLetters(counter, sample_text);
 }
 
-function countLetters(counter, sample_text){
-  // FIX ME
-}
-
-$(document).ready(function(){
+$(document).ready(function() {
   countLetters(counter, sample_text);
   $("#result").html(JSON.stringify(counter));
 });
